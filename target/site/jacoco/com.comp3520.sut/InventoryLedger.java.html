@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InventoryLedger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-junit-eval</a> &gt; <a href="index.source.html" class="el_package">com.comp3520.sut</a> &gt; <span class="el_source">InventoryLedger.java</span></div><h1>InventoryLedger.java</h1><pre class="source lang-java linenums">package com.comp3520.sut;
+
+<span class="fc" id="L3">public class InventoryLedger {</span>
+
+    public int updateStock(int currentStock, int quantityChange, int maxCapacity) {
+<span class="fc bfc" id="L6" title="All 2 branches covered.">        if (maxCapacity &lt;= 0) {</span>
+<span class="fc" id="L7">            throw new IllegalArgumentException(&quot;Max capacity must be positive&quot;);</span>
+        }
+<span class="fc" id="L9">        int newStock = currentStock + quantityChange;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        if (newStock &lt; 0) {</span>
+<span class="fc" id="L11">            throw new IllegalArgumentException(&quot;Stock cannot drop below zero&quot;);</span>
+        }
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (newStock &gt; maxCapacity) {</span>
+<span class="fc" id="L14">            return maxCapacity;</span>
+        }
+<span class="fc" id="L16">        return newStock;</span>
+    }
+
+    public boolean requiresReorder(int currentStock, int reorderThreshold) {
+<span class="fc bfc" id="L20" title="All 4 branches covered.">        if (currentStock &lt; 0 || reorderThreshold &lt; 0) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;Values cannot be negative&quot;);</span>
+        }
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        return currentStock &lt;= reorderThreshold;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
